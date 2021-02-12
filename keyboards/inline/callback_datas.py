@@ -1,3 +1,3 @@
 from aiogram.utils.callback_data import CallbackData
 
-buy_callback = CallbackData("dfghgd", "item_name")
+buy_callback = CallbackData("buy", "item_name")

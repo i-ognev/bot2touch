@@ -5,18 +5,12 @@ from aiogram.types import Message, CallbackQuery
 
 from keyboards.inline.callback_datas import buy_callback
 from keyboards.inline.choice_buttons import choice, pear_keyboard, apples_keyboard
-from loader import dp
+from loader import dp, bot
 
-
-@dp.message_handler(Command("items"))
-async def show_items(message: Message):
-    await message.answer(text="На продажу у нас есть 2 товара: 5 Яблок и 1 Груша. \n"
-                              "Если вам ничего не нужно - жмите отмену",
-                         reply_markup=choice)
 
 
 # Попробуйем отловить по встроенному фильтру, где в нашем call.data содержится "pear"
-@dp.callback_query_handler(text_contains="груш")
+@dp.callback_query_handler(text_contains="pear")
 async def buying_pear(call: CallbackQuery):
     # Обязательно сразу сделать answer, чтобы убрать "часики" после нажатия на кнопку.
     # Укажем cache_time, чтобы бот не получал какое-то время апдейты, тогда нижний код не будет выполняться.

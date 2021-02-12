@@ -7,8 +7,9 @@ choice = InlineKeyboardMarkup(row_width=2,
                               inline_keyboard=[
                                   [
                                       InlineKeyboardButton(text="Купить грушу",
-                                                           callback_data=buy_callback.new(item_name="груш")),
-                                      InlineKeyboardButton(text="Купить яблоки", callback_data="buy:apple")
+                                                           callback_data=buy_callback.new(item_name="pear")),
+                                      InlineKeyboardButton(text="Купить яблоки",
+                                                           callback_data=buy_callback.new(item_name="apple"))
                                   ],
                                   [
                                       InlineKeyboardButton(text="Отмена", callback_data="next")
