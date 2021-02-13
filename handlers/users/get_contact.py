@@ -6,6 +6,11 @@ from loader import dp
 
 
 @dp.callback_query_handler(text_contains="желаю")
+@dp.callback_query_handler(text_contains="в_баре")
+@dp.callback_query_handler(text_contains="темное")
+@dp.callback_query_handler(text_contains="tsingtao")
+@dp.callback_query_handler(text_contains="steen_brugge")
+@dp.callback_query_handler(text_contains="corsendonk_blanche")
 async def get_cons2(call: CallbackQuery):
     await call.answer(cache_time=60)
     call_phone = call.data

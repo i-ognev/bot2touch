@@ -10,6 +10,8 @@ from loader import dp
 
 @dp.message_handler(Text(endswith="ция"))
 async def get_cons(message: types.Message):
+    call_cons = message.text
+    print(f"Выбор в главном меню:{call_cons}")
     await message.answer("Вы можете связаться с нами самостоятельно:\n\n"
 
                          "🔹 Позвонить нам по телефону 📞 8 922 633 40 16 \n\n"
