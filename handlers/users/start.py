@@ -23,7 +23,7 @@ async def bot_start(message: types.Message):
 @dp.message_handler(state=NameClient.NC)
 async def answer_nc(message: types.Message, state: FSMContext):
     answer = message.text
-    logging.info = f"Psfdgfsd ={answer}"
+    print(f"имя:{answer}")
     await message.answer(f"🤝🤝🤝 Очень рады знакомству с Вами {answer}!")
     await state.finish()
-    await message.answer("Что вас интересует?", reply_markup=keyboard_menu)
+    await message.answer("Что вас интересует❓", reply_markup=keyboard_menu)

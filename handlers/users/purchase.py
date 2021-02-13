@@ -8,7 +8,6 @@ from keyboards.inline.choice_buttons import choice, pear_keyboard, apples_keyboa
 from loader import dp, bot
 
 
-
 # Попробуйем отловить по встроенному фильтру, где в нашем call.data содержится "pear"
 @dp.callback_query_handler(text_contains="pear")
 async def buying_pear(call: CallbackQuery):

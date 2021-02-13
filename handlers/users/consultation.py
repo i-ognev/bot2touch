@@ -1,32 +1,38 @@
 import logging
 
 from aiogram import types
-from aiogram.dispatcher.filters import Text, Command
+from aiogram.dispatcher.filters import Text
 from aiogram.types import ReplyKeyboardRemove, CallbackQuery
 
-from keyboards.inline.choice_buttons import pear_keyboard
-from keyboards.inline.data_buttons import keyboard_dat
+from keyboards.inline.data_buttons import keyboard_dat, site_keyboard
 from loader import dp
 
 
-@dp.message_handler(Text(contains="Нужнаавпывап"))
+@dp.message_handler(Text(endswith="ция"))
 async def get_cons(message: types.Message):
     await message.answer("Вы можете связаться с нами самостоятельно:\n\n"
-                         "🔹 Позвонить нам по телефону  8 922 633 40 16\n\n"
-                         "🔹 Написать нам на почту  info@2touch.ru\n\n"
-                         "🔹 Или можете оставить свои данные и мы свяжемся с вами\n\n",
+
+                         "🔹 Позвонить нам по телефону 📞 8 922 633 40 16 \n\n"
+
+                         "🔹 Написать нам на почту ✉️ info@2touch.ru \n\n"
+
+                         "🔹 Или можете оставить свои данные и мы свяжемся с вами",
                          reply_markup=ReplyKeyboardRemove())
-    await message.answer("Желаете оставить свои данные?", reply_markup=keyboard_dat)
+    await message.answer("Желаете оставить свои данные, чтобы мы сами могли связаться с вами❓",
+                         reply_markup=keyboard_dat)
 
 
-@dp.callback_query_handler(text_contains="желаю")
+@dp.callback_query_handler(text_contains="не_желаю")
 async def get_cons2(call: CallbackQuery):
     await call.answer(cache_time=60)
-
     call_data = call.data
+    print(f"{call_data}")
+    await call.message.answer("Тогда свяжитесь с нами сами:\n\n"
 
-    logging.info(f"{call_data=}")
+                              "🔹 Позвоните нам по телефону 📞 8 922 633 40 16 \n\n"
 
-    await call.message.answer("Выбрали желаю",
-                              reply_markup=pear_keyboard)
+                              "🔹 Напишите нам на почту ✉️ info@2touch.ru \n\n"
+
+                              "🔹 Или передите на наш сайт ⤵",
+                              reply_markup=site_keyboard)
     await call.message.edit_reply_markup()
