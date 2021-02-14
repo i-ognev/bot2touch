@@ -6,17 +6,17 @@ keyboard_marka_beer = InlineKeyboardMarkup(row_width=2,
                                            inline_keyboard=[
                                               [
                                                   InlineKeyboardButton(
-                                                      text="✔️ Tsingtao",
+                                                      text="🍺 Tsingtao",
                                                       callback_data=beer_marka_call.new(item_name="tsingtao")
                                                   ),
                                                   InlineKeyboardButton(
-                                                      text="✔️ Steen Brugge",
+                                                      text="🍺 Steen Brugge",
                                                       callback_data=beer_marka_call.new(item_name="steen_brugge")
                                                   )
                                               ],
                                               [
                                                   InlineKeyboardButton(
-                                                      text="✔️ Corsendonk Blanche",
+                                                      text="🍺 Corsendonk Blanche",
                                                       callback_data=beer_marka_call.new(item_name="corsendonk_blanche")
                                                   )
                                               ]

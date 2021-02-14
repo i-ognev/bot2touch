@@ -1,5 +1,3 @@
-import logging
-
 from aiogram import types
 from aiogram.dispatcher.filters import Text
 from aiogram.types import ReplyKeyboardRemove, CallbackQuery
@@ -16,7 +14,7 @@ async def get_cons(message: types.Message):
 
                          "🔹 Позвонить нам по телефону 📞 8 922 633 40 16 \n\n"
 
-                         "🔹 Написать нам на почту ✉️ info@2touch.ru \n\n"
+                         "🔹 Написать нам на почту ✉ info@2touch.ru \n\n"
 
                          "🔹 Или можете оставить свои данные и мы свяжемся с вами",
                          reply_markup=ReplyKeyboardRemove())
@@ -33,8 +31,8 @@ async def get_cons2(call: CallbackQuery):
 
                               "🔹 Позвоните нам по телефону 📞 8 922 633 40 16 \n\n"
 
-                              "🔹 Напишите нам на почту ✉️ info@2touch.ru \n\n"
+                              "🔹 Напишите нам на почту ✉ info@2touch.ru \n\n"
 
-                              "🔹 Или передите на наш сайт ⤵",
+                              "🔹 Или перейдите на наш сайт ⤵",
                               reply_markup=site_keyboard)
     await call.message.edit_reply_markup()

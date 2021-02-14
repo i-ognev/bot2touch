@@ -9,10 +9,11 @@ from loader import dp
 
 
 @dp.message_handler(Text(endswith="вом"))
+@dp.message_handler(Text(endswith="пиву"))
 async def get_beer(message: types.Message):
     call_beer = message.text
     print(f"Выбор в главном меню:{call_beer}")
-    await message.answer("Давайте треперь определимся с местом встречи",
+    await message.answer("👍 Давайте теперь определимся с местом встречи",
                          reply_markup=ReplyKeyboardRemove())
     await message.answer("Где бы вы хотели обсудить свой проект❓",
                          reply_markup=keyboard_place_beer)
