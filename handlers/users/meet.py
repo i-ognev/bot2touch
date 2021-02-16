@@ -13,22 +13,11 @@ from states.name_coffee import NameCoffee
 @dp.message_handler(Text(endswith="стречу"))
 async def get_meet(message: types.Message):
     call_meet = message.text
-    print(f"Какой напиток?:{call_meet}")
+    print(f"Выбор в главном меню:{call_meet}")
     await message.answer("👍 Давайте теперь определимся с напитками",
                          reply_markup=ReplyKeyboardRemove())
     await message.answer("Предпочитаете ☕ Кофе или 🍻 по Пиву❓",
                          reply_markup=keyboard_meet)
-
-
-# @dp.callback_query_handler(text_contains="кофейня")
-# async def get_meet2(call: CallbackQuery):
-#    await call.answer(cache_time=60)
-#    call_meet2 = call.data
-#    print(f"Что пить?:{call_meet2}")
-#    await call.message.answer("👍 Давайте теперь определимся с напитками", )
-#    await call.message.answer("Предпочитаете ☕ Кофе или 🍻 по Пиву❓",
-#                              reply_markup=keyboard_meet)
-#    await call.message.edit_reply_markup()
 
 
 @dp.callback_query_handler(text_endswith="ня")
@@ -60,6 +49,3 @@ async def get_meet3(message: types.Message, state: FSMContext):
     await message.answer("Пожалуйста, оставьте свой 📞 номер телефона,"
                          " чтобы мы могли позвонить вам и назначить встречу ⤵",
                          reply_markup=keyboard_contacts)
-
-
-
